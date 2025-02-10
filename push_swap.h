@@ -1,25 +1,66 @@
-#ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tuthayak <tuthayak@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/10 23:50:29 by tuthayak          #+#    #+#             */
+/*   Updated: 2025/02/10 23:50:29 by tuthayak         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+
+# include <stdlib.h>
+# include <unistd.h>
+# include <limits.h>
+
+// Define the stack and node structures
+typedef struct s_node
+{
+	int				value;
+	struct s_node	*next;
+}					t_node;
 
 typedef struct s_stack
 {
-    int *data;
-    int top;
-    int size;
-} t_stack;
+	t_node			*head;
+}					t_stack;
 
-void    init_stack(t_stack *stack, int size);
-void    push(t_stack *stack, int value);
-int     pop(t_stack *stack);
-int     is_empty(t_stack *stack);
-void    swap(t_stack *stack);
-void    push_to(t_stack *src, t_stack *dest);
-void    sort_stack(t_stack *stack_a, t_stack *stack_b);
-void    free_stack(t_stack *stack);
-void    error(const char *msg);
-int     validate_input(int argc, char **argv);
+// Function prototypes
+void	radix_sort(t_stack *a, t_stack *b);
+int		stack_size(t_stack *stack);
+int		find_max_bits(int size);
+void	move_back_elements(t_stack *a, t_stack *b);
+void	sa(t_stack *a);
+void	sb(t_stack *b);
+void	ss(t_stack *a, t_stack *b);
+void	ra(t_stack **a);
+void	rb(t_stack **b);
+void	rr(t_stack **a, t_stack **b);
+void	rra(t_stack **a);
+void	rrb(t_stack **b);
+void	rrr(t_stack **a, t_stack **b);
+void	pa(t_stack *a, t_stack *b);
+void	pb(t_stack *a, t_stack *b);
+void	sort_two(t_stack *stack);
+void	sort_three(t_stack *stack);
+void	sort_four(t_stack *a, t_stack *b);
+void	sort_five(t_stack *a, t_stack *b);
+t_stack	*init_stack(void);
+void	stack_add_back(t_stack **stack, t_node *new);
+t_node	*stack_new(int value);
+void	free_stack(t_stack **stack);
+int		*parse_input(int argc, char **argv, int *size);
+void	fill_stack(t_stack *stack, int *arr, int size);
+int		is_valid_number(char *str);
+int		has_duplicates(int *arr, int size);
+int		is_within_int_range(char *str);
+long	ft_atol(const char *str);
+int		ft_atoi(const char *str);
+int		ft_isdigit(int c);
+int		find_min_index(t_stack *stack);
 
-#endif /* PUSH_SWAP_H */
+#endif
