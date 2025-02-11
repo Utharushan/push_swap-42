@@ -12,9 +12,8 @@ The Push Swap project is a sorting algorithm implementation designed to sort a s
 ├── parsing.c                       # Argument parsing and validation
 ├── parsing_string.c                # String parsing functions
 ├── stack_utils.c                   # Stack initialization and utility functions
-├── sorting.c                       # Main sorting algorithm
 ├── sorting_small.c                 # Sorting algorithm for small stacks
-├── sorting_large_utils.c           # Helper functions for large stack sorting
+├── sorting_large.c                 # Sorting algorithm for large stacks
 ├── rotate_operations.c             # Rotate operations (ra, rb, rr)
 ├── reverse_rotate_operations.c     # Reverse rotate operations (rra, rrb, rrr)
 ├── push_operations.c               # Push operations (pa, pb)

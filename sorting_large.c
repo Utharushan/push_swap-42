@@ -12,6 +12,24 @@
 
 #include "push_swap.h"
 
+// Find the maximum number of bits needed to represent the largest number
+int	find_max_bits(int size)
+{
+	int	max_bits;
+
+	max_bits = 0;
+	while ((size - 1) >> max_bits != 0)
+		max_bits++;
+	return (max_bits);
+}
+
+// Move elements back from stack B to stack A
+void	move_back_elements(t_stack *a, t_stack *b)
+{
+	while (stack_size(b) != 0)
+		pa(a, b);
+}
+
 // Radix sort implementation
 void	radix_sort(t_stack *a, t_stack *b)
 {

@@ -15,9 +15,8 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = main.c \
        stack_utils.c \
-       sorting.c \
        sorting_small.c \
-       sorting_large_utils.c \
+       sorting_large.c \
        rotate_operations.c \
        reverse_rotate_operations.c \
        push_operations.c \
