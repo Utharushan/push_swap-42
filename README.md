@@ -18,6 +18,7 @@ The Push Swap project is a sorting algorithm implementation designed to sort a s
 ├── reverse_rotate_operations.c     # Reverse rotate operations (rra, rrb, rrr)
 ├── push_operations.c               # Push operations (pa, pb)
 ├── swap_operations.c               # Swap operations (sa, sb, ss)
+├── ft_split.c                      # Custom implementation of split
 └── error_handling.c                # Error handling functions
 ```
 

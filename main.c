@@ -30,30 +30,57 @@ void	sort_stack(t_stack *a, t_stack *b, int size)
 		radix_sort(a, b);
 }
 
-// Main function to parse input, initialize stacks, and sort
-int	main(int argc, char **argv)
+// Initialize stacks, fill with values, sort, and free memory
+int	initialize_and_sort_stack(int *arr, int size)
 {
 	t_stack	*a;
 	t_stack	*b;
-	int		*arr;
-	int		size;
 
-	if (argc < 2)
-		return (1);
-	arr = parse_input(argc, argv, &size);
-	if (!arr)
-	{
-		write(2, "Error\n", 6);
-		return (1);
-	}
 	a = init_stack();
 	b = init_stack();
 	if (!a || !b)
-		return (free(arr), write(2, "Error\n", 6), 1);
+	{
+		free(arr);
+		if (a)
+			free_stack(&a);
+		if (b)
+			free_stack(&b);
+		write(2, "Error\n", 6);
+		return (1);
+	}
 	fill_stack(a, arr, size);
 	free(arr);
 	sort_stack(a, b, size);
 	free_stack(&a);
 	free_stack(&b);
 	return (0);
+}
+
+// Main function to parse input, initialize stacks, and sort
+int	main(int argc, char **argv)
+{
+	int		*arr;
+	int		size;
+
+	if (argc < 2)
+		return (1);
+	if (argc == 2)
+	{
+		arr = parse_string_input(argc, argv, &size);
+		if (!arr)
+		{
+			write(2, "Error\n", 6);
+			return (1);
+		}
+	}
+	else
+	{
+		arr = parse_input(argc, argv, &size);
+		if (!arr)
+		{
+			write(2, "Error\n", 6);
+			return (1);
+		}
+	}
+	return (initialize_and_sort_stack(arr, size));
 }

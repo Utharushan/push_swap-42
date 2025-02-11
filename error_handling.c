@@ -22,7 +22,7 @@ int	is_valid_number(char *str)
 		i++;
 	while (str[i])
 	{
-		if (!ft_isdigit(str[i]))
+		if (!(str[i] >= '0' && str[i] <= '9'))
 			return (0);
 		i++;
 	}
@@ -61,10 +61,14 @@ int	is_within_int_range(char *str)
 	return (1);
 }
 
-// Check if the character is a digit
-int	ft_isdigit(int c)
+void	free_split(char **split)
 {
-	return (c >= '0' && c <= '9');
+	int	i;
+
+	i = 0;
+	while (split[i])
+		free(split[i++]);
+	free(split);
 }
 
 // Convert a string to a long integer

@@ -72,7 +72,7 @@ void	free_stack(t_stack **stack)
 	t_node	*current;
 	t_node	*tmp;
 
-	if (!stack || !(*stack)->head)
+	if (!stack || !(*stack))
 		return ;
 	current = (*stack)->head;
 	while (current)

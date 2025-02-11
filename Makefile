@@ -22,8 +22,10 @@ SRCS = main.c \
        reverse_rotate_operations.c \
        push_operations.c \
        parsing.c \
+       parsing_string.c \
        error_handling.c \
-       swap_operations.c
+       swap_operations.c \
+       ft_split.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
