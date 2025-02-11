@@ -10,6 +10,7 @@ The Push Swap project is a sorting algorithm implementation designed to sort a s
 ├── push_swap.h                    # Header file
 ├── main.c                         # Entry point of the program
 ├── parsing.c                      # Argument parsing and validation
+├── parsing_string.c                # String parsing functions
 ├── stack_utils.c                   # Stack initialization and utility functions
 ├── sorting.c                       # Main sorting algorithm
 ├── sorting_small.c                 # Sorting algorithm for small stacks
