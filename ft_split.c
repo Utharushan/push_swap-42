@@ -12,6 +12,7 @@
 
 #include "push_swap.h"
 
+// Count the number of words in the string
 static int	count_words(const char *s, char c)
 {
 	int	count;
@@ -33,6 +34,7 @@ static int	count_words(const char *s, char c)
 	return (count);
 }
 
+// Allocate memory for a word
 static char	*allocate_word(const char *s, char c)
 {
 	size_t	len;
@@ -50,6 +52,7 @@ static char	*allocate_word(const char *s, char c)
 	return (word);
 }
 
+// Free the allocated memory for the words
 static void	free_words(char **words, int i)
 {
 	while (i >= 0)
@@ -57,6 +60,7 @@ static void	free_words(char **words, int i)
 	free(words);
 }
 
+// Allocate memory for the words
 static char	**allocate_words(const char *s, char c, char **words)
 {
 	int	i;
@@ -83,6 +87,7 @@ static char	**allocate_words(const char *s, char c, char **words)
 	return (words);
 }
 
+// Split the string into words
 char	**ft_split(const char *s, char c)
 {
 	char	**words;

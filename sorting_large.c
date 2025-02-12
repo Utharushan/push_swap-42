@@ -23,38 +23,83 @@ int	find_max_bits(int size)
 	return (max_bits);
 }
 
-// Move elements back from stack B to stack A
-void	move_back_elements(t_stack *a, t_stack *b)
+// Normalize the values of the stack to be in the range [0, size - 1]
+void	normalize_values(t_stack *stack)
 {
-	while (stack_size(b) != 0)
-		pa(a, b);
+	t_node	*cur;
+	int		*sorted_array;
+	int		i;
+	int		size;
+
+	size = stack_size(stack);
+	sorted_array = stack_to_sorted_array(stack);
+	if (!sorted_array)
+		return ;
+	cur = stack->head;
+	while (cur)
+	{
+		i = 0;
+		while (i < size)
+		{
+			if (cur->value == sorted_array[i])
+			{
+				cur->value = i;
+				break ;
+			}
+			i++;
+		}
+		cur = cur->next;
+	}
+	free(sorted_array);
 }
 
-// Radix sort implementation
+// Convert the stack to a sorted array
+int	*stack_to_sorted_array(t_stack *stack)
+{
+	int		*arr;
+	t_node	*cur;
+	int		i;
+	int		size;
+
+	size = stack_size(stack);
+	arr = malloc(sizeof(int) * size);
+	if (!arr)
+		return (NULL);
+	cur = stack->head;
+	i = 0;
+	while (cur)
+	{
+		arr[i++] = cur->value;
+		cur = cur->next;
+	}
+	bubble_sort(arr, size); // Sort the array
+	return (arr);
+}
+
+// Main sort function with bit shifting
 void	radix_sort(t_stack *a, t_stack *b)
 {
-	int		max_bits;
-	int		i;
-	int		j;
-	int		size;
-	t_node	*current;
+	int	max_bits;
+	int	i;
+	int	j;
+	int	size;
 
+	normalize_values(a);
 	size = stack_size(a);
 	max_bits = find_max_bits(size);
 	i = 0;
 	while (i < max_bits)
 	{
 		j = 0;
-		while (j < size)
+		while (j++ < size)
 		{
-			current = a->head;
-			if (((current->value >> i) & 1) == 1)
+			if (((a->head->value >> i) & 1) == 1)
 				ra(&a);
 			else
 				pb(a, b);
-			j++;
 		}
-		move_back_elements(a, b);
+		while (stack_size(b) != 0)
+			pa(a, b);
 		i++;
 	}
 }

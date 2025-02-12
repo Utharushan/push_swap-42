@@ -12,6 +12,7 @@
 
 #include "push_swap.h"
 
+// Initialize the stack
 t_stack	*init_stack(void)
 {
 	t_stack	*stack;
@@ -23,6 +24,7 @@ t_stack	*init_stack(void)
 	return (stack);
 }
 
+// Get the size of the stack
 int	stack_size(t_stack *stack)
 {
 	int		size;
@@ -38,6 +40,7 @@ int	stack_size(t_stack *stack)
 	return (size);
 }
 
+// Add a new node to the back of the stack
 void	stack_add_back(t_stack **stack, t_node *new)
 {
 	t_node	*current;
@@ -55,6 +58,7 @@ void	stack_add_back(t_stack **stack, t_node *new)
 	current->next = new;
 }
 
+// Create a new node
 t_node	*stack_new(int value)
 {
 	t_node	*new_node;
@@ -67,6 +71,7 @@ t_node	*stack_new(int value)
 	return (new_node);
 }
 
+// Free the stack
 void	free_stack(t_stack **stack)
 {
 	t_node	*current;

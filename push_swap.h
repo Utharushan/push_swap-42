@@ -31,9 +31,11 @@ typedef struct s_stack
 
 // Function prototypes
 void	radix_sort(t_stack *a, t_stack *b);
+void	normalize_values(t_stack *stack);
+int		*stack_to_sorted_array(t_stack *stack);
+void	bubble_sort(int *arr, int size);
 int		stack_size(t_stack *stack);
 int		find_max_bits(int size);
-void	move_back_elements(t_stack *a, t_stack *b);
 void	sa(t_stack *a);
 void	sb(t_stack *b);
 void	ss(t_stack *a, t_stack *b);

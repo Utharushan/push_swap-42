@@ -61,6 +61,7 @@ int	is_within_int_range(char *str)
 	return (1);
 }
 
+// Helper function to free a split string
 void	free_split(char **split)
 {
 	int	i;
