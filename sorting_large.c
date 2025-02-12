@@ -72,7 +72,7 @@ int	*stack_to_sorted_array(t_stack *stack)
 		arr[i++] = cur->value;
 		cur = cur->next;
 	}
-	bubble_sort(arr, size); // Sort the array
+	bubble_sort(arr, size);
 	return (arr);
 }
 
