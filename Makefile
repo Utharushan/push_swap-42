@@ -26,17 +26,21 @@ SRCS = main.c \
        swap_operations.c \
        ft_split.c
 OBJS = $(SRCS:.c=.o)
+LIBNAME = push_swap.a
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+$(LIBNAME): $(OBJS)
+	ar rcs $(LIBNAME) $(OBJS)
+
+$(NAME): $(LIBNAME)
+	$(CC) $(CFLAGS) -o $(NAME) $(LIBNAME)
 
 clean:
 	rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(LIBNAME)
 
 re: fclean all
 
