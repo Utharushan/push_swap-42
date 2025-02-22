@@ -64,6 +64,7 @@ void	fill_stack(t_stack *stack, int *arr, int size);
 int		is_valid_number(char *str);
 int		has_duplicates(int *arr, int size);
 int		is_within_int_range(char *str);
+int		is_sorted(t_stack *stack);
 long	ft_atol(const char *str);
 int		ft_atoi(const char *str);
 int		ft_isdigit(int c);

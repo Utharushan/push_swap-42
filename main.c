@@ -15,6 +15,8 @@
 // Sort the stack based on its size
 void	sort_stack(t_stack *a, t_stack *b, int size)
 {
+	if (is_sorted(a))
+		return ;
 	if (size <= 5)
 	{
 		if (size == 2)
@@ -28,6 +30,23 @@ void	sort_stack(t_stack *a, t_stack *b, int size)
 	}
 	else
 		radix_sort(a, b);
+}
+
+// Check if the stack is sorted in ascending order
+int	is_sorted(t_stack *stack)
+{
+	t_node	*current;
+
+	if (!stack || !stack->head)
+		return (1);
+	current = stack->head;
+	while (current->next)
+	{
+		if (current->value > current->next->value)
+			return (0);
+		current = current->next;
+	}
+	return (1);
 }
 
 // Initialize stacks, fill with values, sort, and free memory
